@@ -1,3 +1,5 @@
+'use client'; // Add this directive
+
 import {
   Table,
   TableBody,
@@ -9,6 +11,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Eye, CheckCircle, XCircle } from 'lucide-react'; // Example icons
+import React from 'react'; // Import React for potential future state management
 
 // Mock data - replace with actual API fetch
 const mockBookings = [
@@ -20,6 +23,7 @@ const mockBookings = [
 
 export default function AdminBookingsPage() {
   // In a real app, fetch bookings data here, handle loading/error states
+  // Example: const [bookings, setBookings] = React.useState(mockBookings);
 
   const getStatusBadgeVariant = (status: string) => {
     switch (status.toLowerCase()) {
@@ -34,11 +38,15 @@ export default function AdminBookingsPage() {
   const handleApprove = (bookingId: string) => {
       console.log(`Approving booking ${bookingId}`);
       // Add API call logic here
+      // Example: Update booking status in state and call API
+      // setBookings(prev => prev.map(b => b.id === bookingId ? { ...b, status: 'Confirmed' } : b));
   };
 
     const handleDecline = (bookingId: string) => {
         console.log(`Declining booking ${bookingId}`);
         // Add API call logic here
+        // Example: Update booking status in state and call API
+        // setBookings(prev => prev.map(b => b.id === bookingId ? { ...b, status: 'Cancelled' } : b));
     };
 
   return (
